@@ -24,8 +24,11 @@
 
 ## 🛠 Feature Roadmap
 
-### [Logging](https://github.com/winstonjs/winston)
+### Create Logger
+- [x] service
+- [ ] defaultMeta
 
+### Logging
 - [ ] **Emergency**: system is unusable
 - [ ] **Alert**: action must be taken immediately
 - [ ] **Critical**: critical conditions
@@ -34,10 +37,6 @@
 - [ ] **Notice**: normal but significant condition
 - [x] **Informational**: informational messages
 - [ ] **Debug**: debug-level messages
-
-### Create Logger
-- [x] service
-- [ ] defaultMeta
 
 ### Filtering info Objects
 - [ ] ~ignorePrivate~
