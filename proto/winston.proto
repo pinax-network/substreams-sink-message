@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package pinax.substreams.sink.winston.v1;
+
+option go_package = "github.com/pinax-network/substreams-sink-winston/pb;pbkv";
+
+// Vector of Winston Logging messages
+message LoggerOperations {
+  repeated LoggerOperation operations = 1;
+}
+
+// Logging levels in winston conform to the severity ordering specified by RFC5424:
+// severity of all levels is assumed to be numerically ascending from most important to least important.
+enum LoggingLevels {
+  ERROR = 0; 
+  WARN = 1; 
+  INFO = 2; 
+  HTTP = 3; 
+  VERBOSE = 4; 
+  DEBUG = 5; 
+  SILLY = 6;
+}
+
+message LoggerOperation {
+  LoggingLevels method = 1;
+  string level = 2;
+  string message = 3;
+  map<string, string> metadata = 4;
+}
+
+// Each level is given a specific integer priority.
+// The higher the priority the more important the message is considered to be,
+// and the lower the corresponding integer priority.
+// For example, as specified exactly in RFC5424 the syslog levels are prioritized from 0 to 7 (highest to lowest).
+// enum LoggingLevels {
+//   EMERG = 0;
+//   ALERT = 1;
+//   CRIT = 2;
+//   ERROR = 3;
+//   WARNING = 4;
+//   NOTICE = 5;
+//   INFO = 6;
+//   DEBUG = 7;
+// }
