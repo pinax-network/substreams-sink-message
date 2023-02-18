@@ -17,15 +17,11 @@
 - [Substreams documentation](https://substreams.streamingfast.io)
 - [Winston documentation](https://github.com/winstonjs/winston)
 
-**Install** globally via npm
-```
-$ npm install -g substreams-sink-winston
-```
+## Related Sinks
 
-**Run**
-```
-$ substreams-sink-winston run [options] <spkg>
-```
+- [ ] **Substreams GoogleSheet** sink module
+- [ ] **Substreams Telegram** sink module
+- [ ] **Substreams Discord** sink module
 
 ## 🛠 Feature Roadmap
 
