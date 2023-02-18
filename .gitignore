@@ -2,11 +2,13 @@
 node_modules
 Cargo.lock
 target
-*.js
 *-linux
 *-macos
 *-win.exe
 dist
 *.log
 data
-!example.js
+
+*.js
+package.json
+package-lock.json

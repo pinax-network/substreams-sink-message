@@ -19,6 +19,7 @@
 ## Related Sinks
 
 - [ ] **Substreams GoogleSheet** sink module
+- [ ] **Substreams CSV** sink module
 - [ ] **Substreams Telegram** sink module
 - [ ] **Substreams Discord** sink module
 
@@ -29,14 +30,14 @@
 - [ ] defaultMeta
 
 ### Logging
-- [ ] **Emergency**: system is unusable
-- [ ] **Alert**: action must be taken immediately
-- [ ] **Critical**: critical conditions
-- [ ] **Error**: error conditions
-- [ ] **Warning**: warning conditions
-- [ ] **Notice**: normal but significant condition
+- [x] **Emergency**: system is unusable
+- [x] **Alert**: action must be taken immediately
+- [x] **Critical**: critical conditions
+- [x] **Error**: error conditions
+- [x] **Warning**: warning conditions
+- [x] **Notice**: normal but significant condition
 - [x] **Informational**: informational messages
-- [ ] **Debug**: debug-level messages
+- [x] **Debug**: debug-level messages
 
 ### Filtering info Objects
 - [ ] ~ignorePrivate~
@@ -77,7 +78,10 @@ fn prom_out(
     let mut logger = Logger::from("user-service");
 
     // Informational: informational messages
-    log_ops.push(logger.info("message"));
+    log_ops.push(logger.info("info message"));
+
+    // Error: error conditions
+    log_ops.push(logger.error("error message"));
 
     // Create a HashMap of metadata
     let meta = HashMap::from([("label1".to_string(), "value1".to_string())]);
