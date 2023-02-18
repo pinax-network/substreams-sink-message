@@ -1,5 +1,5 @@
-use std::collections::HashMap;
 use crate::{LoggerOperation, LoggingLevels};
+use std::collections::HashMap;
 
 #[derive(Eq, Debug, PartialEq, Default)]
 pub struct Logger {
@@ -25,7 +25,7 @@ impl Logger {
     }
 
     /// Set label to Counter
-    /// Labels represents a collection of label name -> value mappings. 
+    /// Labels represents a collection of label name -> value mappings.
     ///
     /// ### Example
     /// ```
@@ -52,12 +52,12 @@ impl Logger {
     /// ```
     #[inline]
     #[must_use]
-    pub fn emerg(&mut self, message: &str ) -> LoggerOperation {
+    pub fn emerg(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
             message: message.to_string(),
             meta: self.meta.to_owned(),
             level: LoggingLevels::Emerg.into(),
-            service: self.service.to_owned()
+            service: self.service.to_owned(),
         }
     }
     /// Alert: action must be taken immediately
@@ -71,12 +71,12 @@ impl Logger {
     /// ```
     #[inline]
     #[must_use]
-    pub fn alert(&mut self, message: &str ) -> LoggerOperation {
+    pub fn alert(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
             message: message.to_string(),
             meta: self.meta.to_owned(),
             level: LoggingLevels::Alert.into(),
-            service: self.service.to_owned()
+            service: self.service.to_owned(),
         }
     }
     /// Critical: critical conditions
@@ -90,12 +90,12 @@ impl Logger {
     /// ```
     #[inline]
     #[must_use]
-    pub fn crit(&mut self, message: &str ) -> LoggerOperation {
+    pub fn crit(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
             message: message.to_string(),
             meta: self.meta.to_owned(),
             level: LoggingLevels::Crit.into(),
-            service: self.service.to_owned()
+            service: self.service.to_owned(),
         }
     }
 
@@ -110,12 +110,12 @@ impl Logger {
     /// ```
     #[inline]
     #[must_use]
-    pub fn error(&mut self, message: &str ) -> LoggerOperation {
+    pub fn error(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
             message: message.to_string(),
             meta: self.meta.to_owned(),
             level: LoggingLevels::Error.into(),
-            service: self.service.to_owned()
+            service: self.service.to_owned(),
         }
     }
 
@@ -130,12 +130,12 @@ impl Logger {
     /// ```
     #[inline]
     #[must_use]
-    pub fn warning(&mut self, message: &str ) -> LoggerOperation {
+    pub fn warning(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
             message: message.to_string(),
             meta: self.meta.to_owned(),
             level: LoggingLevels::Warning.into(),
-            service: self.service.to_owned()
+            service: self.service.to_owned(),
         }
     }
 
@@ -150,12 +150,12 @@ impl Logger {
     /// ```
     #[inline]
     #[must_use]
-    pub fn notice(&mut self, message: &str ) -> LoggerOperation {
+    pub fn notice(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
             message: message.to_string(),
             meta: self.meta.to_owned(),
             level: LoggingLevels::Notice.into(),
-            service: self.service.to_owned()
+            service: self.service.to_owned(),
         }
     }
 
@@ -170,12 +170,12 @@ impl Logger {
     /// ```
     #[inline]
     #[must_use]
-    pub fn info(&mut self, message: &str ) -> LoggerOperation {
+    pub fn info(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
             message: message.to_string(),
             meta: self.meta.to_owned(),
             level: LoggingLevels::Info.into(),
-            service: self.service.to_owned()
+            service: self.service.to_owned(),
         }
     }
 
@@ -190,12 +190,12 @@ impl Logger {
     /// ```
     #[inline]
     #[must_use]
-    pub fn debug(&mut self, message: &str ) -> LoggerOperation {
+    pub fn debug(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
             message: message.to_string(),
             meta: self.meta.to_owned(),
             level: LoggingLevels::Debug.into(),
-            service: self.service.to_owned()
+            service: self.service.to_owned(),
         }
     }
 }

@@ -2,18 +2,19 @@
 /// Vector of Winston Logging messages
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct LoggerOperations {
-    #[prost(message, repeated, tag="1")]
+    #[prost(message, repeated, tag = "1")]
     pub operations: ::prost::alloc::vec::Vec<LoggerOperation>,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct LoggerOperation {
-    #[prost(enumeration="LoggingLevels", tag="1")]
+    #[prost(enumeration = "LoggingLevels", tag = "1")]
     pub level: i32,
-    #[prost(string, tag="2")]
+    #[prost(string, tag = "2")]
     pub message: ::prost::alloc::string::String,
-    #[prost(map="string, string", tag="3")]
-    pub meta: ::std::collections::HashMap<::prost::alloc::string::String, ::prost::alloc::string::String>,
-    #[prost(string, tag="4")]
+    #[prost(map = "string, string", tag = "3")]
+    pub meta:
+        ::std::collections::HashMap<::prost::alloc::string::String, ::prost::alloc::string::String>,
+    #[prost(string, tag = "4")]
     pub service: ::prost::alloc::string::String,
 }
 /// Each level is given a specific integer priority.

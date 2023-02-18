@@ -5,14 +5,14 @@
 //!
 //! // Initialize Winston Logger operations container
 //! let mut log_ops: LoggerOperations = Default::default();
-//! 
+//!
 //! // Create Logger
 //! // ==============
 //! let mut logger = Logger::from("user-service");
-//! 
+//!
 //! // Informational: informational messages
 //! log_ops.push(logger.info("message"));
-//! 
+//!
 //! // Error: error conditions
 //! log_ops.push(logger.error("error message"));
 //!
