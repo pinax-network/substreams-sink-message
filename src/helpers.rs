@@ -12,14 +12,14 @@ impl LoggerOperations {
 
 #[cfg(test)]
 mod tests {
-    use crate::{LoggerOperation, LoggerOperations};
+    use crate::{Logger, LoggerOperations};
 
     #[test]
     fn test_push() {
         let mut log_ops: LoggerOperations = Default::default();
-        let mut log = LoggerOperation::from("custom_log");
-        log_ops.push(log.inc());
-        log_ops.push(log.inc());
+        let mut logger = Logger::from("user-service");
+        log_ops.push(logger.info("message1"));
+        log_ops.push(logger.info("message2"));
 
         assert_eq!(log_ops.operations.len(), 2);
     }
@@ -27,8 +27,8 @@ mod tests {
     #[test]
     fn test_extend() {
         let mut log_ops: LoggerOperations = Default::default();
-        let mut log = LoggerOperation::from("custom_log");
-        log_ops.extend(vec![log.inc(), log.inc()]);
+        let mut logger = Logger::from("user-service");
+        log_ops.extend(vec![logger.info("message1"), logger.info("message2")]);
 
         assert_eq!(log_ops.operations.len(), 2);
     }

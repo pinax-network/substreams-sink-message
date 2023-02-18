@@ -9,36 +9,24 @@ message LoggerOperations {
   repeated LoggerOperation operations = 1;
 }
 
-// Logging levels in winston conform to the severity ordering specified by RFC5424:
-// severity of all levels is assumed to be numerically ascending from most important to least important.
-enum LoggingLevels {
-  ERROR = 0; 
-  WARN = 1; 
-  INFO = 2; 
-  HTTP = 3; 
-  VERBOSE = 4; 
-  DEBUG = 5; 
-  SILLY = 6;
-}
-
 message LoggerOperation {
-  LoggingLevels method = 1;
-  string level = 2;
-  string message = 3;
-  map<string, string> metadata = 4;
+  LoggingLevels level = 1;
+  string message = 2;
+  map<string, string> meta = 3;
+  string service = 4;
 }
 
 // Each level is given a specific integer priority.
 // The higher the priority the more important the message is considered to be,
 // and the lower the corresponding integer priority.
 // For example, as specified exactly in RFC5424 the syslog levels are prioritized from 0 to 7 (highest to lowest).
-// enum LoggingLevels {
-//   EMERG = 0;
-//   ALERT = 1;
-//   CRIT = 2;
-//   ERROR = 3;
-//   WARNING = 4;
-//   NOTICE = 5;
-//   INFO = 6;
-//   DEBUG = 7;
-// }
+enum LoggingLevels {
+  EMERG = 0;      // Emergency: system is unusable
+  ALERT = 1;      // Alert: action must be taken immediately
+  CRIT = 2;       // Critical: critical conditions
+  ERROR = 3;      // Error: error conditions
+  WARNING = 4;    // Warning: warning conditions
+  NOTICE = 5;     // Notice: normal but significant condition
+  INFO = 6;       // Informational: informational messages
+  DEBUG = 7;      // Debug: debug-level messages
+}

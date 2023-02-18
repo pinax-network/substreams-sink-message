@@ -26,13 +26,22 @@
 
 ### [Logging](https://github.com/winstonjs/winston)
 
-- [ ] error
-- [ ] warn
-- [ ] info
-- [ ] http
-- [ ] verbose
-- [ ] debug
-- [ ] silly
+- [ ] **Emergency**: system is unusable
+- [ ] **Alert**: action must be taken immediately
+- [ ] **Critical**: critical conditions
+- [ ] **Error**: error conditions
+- [ ] **Warning**: warning conditions
+- [ ] **Notice**: normal but significant condition
+- [x] **Informational**: informational messages
+- [ ] **Debug**: debug-level messages
+
+### Create Logger
+- [x] service
+- [ ] defaultMeta
+
+### Filtering info Objects
+- [ ] ~ignorePrivate~
+- [ ] ~private~
 
 ## Install
 
@@ -48,4 +57,33 @@ $ cargo add substreams-sink-winston
 [dependencies]
 substreams = "0.5"
 substreams-sink-winston = "0.1"
+```
+
+**src/lib.rs**
+
+```rust
+use std::collections::HashMap;
+use substreams::errors::Error;
+use substreams_sink_winston::{Logger, LoggerOperations};
+
+#[substreams::handlers::map]
+fn prom_out(
+    ... some stores ...
+) -> Result<LoggerOperations, Error> {
+    // Initialize Winston Logger operations container
+    let mut log_ops: LoggerOperations = Default::default();
+
+    // Create Logger
+    // ==============
+    let mut logger = Logger::from("user-service");
+
+    // Informational: informational messages
+    log_ops.push(logger.info("message"));
+
+    // Create a HashMap of metadata
+    let meta = HashMap::from([("label1".to_string(), "value1".to_string())]);
+    log_ops.push(logger.with(meta).info("message"));
+
+    Ok(log_ops)
+}
 ```
