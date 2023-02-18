@@ -26,13 +26,14 @@
 ## 🛠 Feature Roadmap
 
 ### [Logging](https://github.com/winstonjs/winston)
- -[ ] error
- -[ ] warn
- -[ ] info
- -[ ] http
- -[ ] verbose
- -[ ] debug
- -[ ] silly
+
+- [ ] error
+- [ ] warn
+- [ ] info
+- [ ] http
+- [ ] verbose
+- [ ] debug
+- [ ] silly
 
 ## Install
 
