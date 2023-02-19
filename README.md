@@ -85,7 +85,7 @@ fn prom_out(
 
     // Create a HashMap of metadata
     let meta = HashMap::from([("label1".to_string(), "value1".to_string())]);
-    log_ops.push(logger.with(meta).info("message"));
+    log_ops.push(logger.info("message").with(meta));
 
     Ok(log_ops)
 }

@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package pinax.substreams.sink.winston.v1;
 
+// import "any.proto";
 option go_package = "github.com/pinax-network/substreams-sink-winston/pb;pbkv";
 
 // Vector of Winston Logging messages
@@ -12,6 +13,7 @@ message LoggerOperations {
 message LoggerOperation {
   LoggingLevels level = 1;
   string message = 2;
+  // google.protobuf.Any meta = 3;
   map<string, string> meta = 3;
   string service = 4;
 }

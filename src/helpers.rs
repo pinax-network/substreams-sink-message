@@ -17,7 +17,7 @@ mod tests {
     #[test]
     fn test_push() {
         let mut log_ops: LoggerOperations = Default::default();
-        let mut logger = Logger::from("user-service");
+        let logger = Logger::new("user-service");
         log_ops.push(logger.info("message1"));
         log_ops.push(logger.info("message2"));
 
@@ -27,7 +27,7 @@ mod tests {
     #[test]
     fn test_extend() {
         let mut log_ops: LoggerOperations = Default::default();
-        let mut logger = Logger::from("user-service");
+        let logger = Logger::new("user-service");
         log_ops.extend(vec![logger.info("message1"), logger.info("message2")]);
 
         assert_eq!(log_ops.operations.len(), 2);
