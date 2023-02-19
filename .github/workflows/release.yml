@@ -4,12 +4,10 @@ on: [push]
 jobs:
   release:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - name: Install Substreams CLI
-        uses: giantswarm/install-binary-action@VERSION
+        uses: giantswarm/install-binary-action@v1.1.0
         with:
           binary: "substreams"
           version: "v0.2.0"
