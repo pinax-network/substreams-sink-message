@@ -21,9 +21,9 @@ impl LoggerOperation {
     #[inline]
     pub fn with(self, meta: HashMap<String, String>) -> Self {
         LoggerOperation {
+            level: self.level,
             message: self.message,
             meta,
-            level: self.level,
             service: self.service,
         }
     }
@@ -58,9 +58,9 @@ impl Logger {
     #[must_use]
     pub fn emerg(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
+            level: LoggingLevels::Emerg.into(),
             message: message.to_string(),
             meta: Default::default(),
-            level: LoggingLevels::Emerg.into(),
             service: self.service.to_owned(),
         }
     }
@@ -77,9 +77,9 @@ impl Logger {
     #[must_use]
     pub fn alert(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
+            level: LoggingLevels::Alert.into(),
             message: message.to_string(),
             meta: Default::default(),
-            level: LoggingLevels::Alert.into(),
             service: self.service.to_owned(),
         }
     }
@@ -96,9 +96,9 @@ impl Logger {
     #[must_use]
     pub fn crit(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
+            level: LoggingLevels::Crit.into(),
             message: message.to_string(),
             meta: Default::default(),
-            level: LoggingLevels::Crit.into(),
             service: self.service.to_owned(),
         }
     }
@@ -116,9 +116,9 @@ impl Logger {
     #[must_use]
     pub fn error(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
+            level: LoggingLevels::Error.into(),
             message: message.to_string(),
             meta: Default::default(),
-            level: LoggingLevels::Error.into(),
             service: self.service.to_owned(),
         }
     }
@@ -136,9 +136,9 @@ impl Logger {
     #[must_use]
     pub fn warning(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
+            level: LoggingLevels::Warning.into(),
             message: message.to_string(),
             meta: Default::default(),
-            level: LoggingLevels::Warning.into(),
             service: self.service.to_owned(),
         }
     }
@@ -156,9 +156,9 @@ impl Logger {
     #[must_use]
     pub fn notice(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
+            level: LoggingLevels::Notice.into(),
             message: message.to_string(),
             meta: Default::default(),
-            level: LoggingLevels::Notice.into(),
             service: self.service.to_owned(),
         }
     }
@@ -176,9 +176,9 @@ impl Logger {
     #[must_use]
     pub fn info(&self, message: &str) -> LoggerOperation {
         LoggerOperation {
+            level: LoggingLevels::Info.into(),
             message: message.to_string(),
             meta: Default::default(),
-            level: LoggingLevels::Info.into(),
             service: self.service.to_owned(),
         }
     }
@@ -196,9 +196,9 @@ impl Logger {
     #[must_use]
     pub fn debug(&mut self, message: &str) -> LoggerOperation {
         LoggerOperation {
+            level: LoggingLevels::Debug.into(),
             message: message.to_string(),
             meta: Default::default(),
-            level: LoggingLevels::Debug.into(),
             service: self.service.to_owned(),
         }
     }
