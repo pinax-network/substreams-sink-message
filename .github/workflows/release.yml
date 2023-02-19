@@ -12,7 +12,6 @@ jobs:
           binary: "substreams"
           version: "v0.2.0"
           download_url: "https://github.com/streamingfast/${binary}/releases/download/${version}/${binary}_linux_x86_64.tar.gz"
-          tarball_binary_path: "*/src/${binary}"
           smoke_test: "${binary} --version"
 
       - name: Compile WASM
