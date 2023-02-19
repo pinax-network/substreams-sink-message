@@ -1,4 +1,4 @@
-name: Substreams
+name: Release
 on: [push]
 
 jobs:
