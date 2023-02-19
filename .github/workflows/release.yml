@@ -7,13 +7,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Substreams CLI
-        uses: giantswarm/install-binary-action@v1.1.0
+      - uses: supplypike/setup-bin@v3
         with:
-          binary: "substreams"
-          version: "v0.2.0"
-          download_url: "https://github.com/streamingfast/${binary}/releases/download/${version}/${binary}_linux_x86_64.tar.gz"
-          tarball_binary_path: "*/${binary}_linux_x86_64.tar.gz"
-          smoke_test: "${binary} --version"
+          uri: 'https://github.com/streamingfast/substreams/releases/download/v0.2.0/substreams_linux_x86_64.tar.gz'
+          name: 'substreams'
+          version: 'v0.2.0'
+
+        # uses: giantswarm/install-binary-action@v1.1.0
+        # with:
+        #   binary: "substreams"
+        #   version: "v0.2.0"
+        #   download_url: "https://github.com/streamingfast/${binary}/releases/download/${version}/${binary}_linux_x86_64.tar.gz"
+        #   tarball_binary_path: "*/${binary}_linux_x86_64.tar.gz"
+        #   smoke_test: "${binary} --version"
 
       - name: Compile WASM
         run: make
