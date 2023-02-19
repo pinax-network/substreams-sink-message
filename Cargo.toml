@@ -1,6 +1,6 @@
 [package]
 name = "substreams-sink-winston"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Denis <denis@pinax.network>", "Yaro <yaro@pinax.network>", "Etienne <etinne@pinax.network>"]
 description = "Substreams Winston Logger sink module"
 homepage = "https://github.com/pinax-network/substreams-sink-winston"
