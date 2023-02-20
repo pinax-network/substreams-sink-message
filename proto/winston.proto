@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package pinax.substreams.sink.winston.v1;
 
-// import "any.proto";
 option go_package = "github.com/pinax-network/substreams-sink-winston/pb;pbkv";
 
 // Vector of Winston Logging messages
@@ -11,11 +10,10 @@ message LoggerOperations {
 }
 
 message LoggerOperation {
-  LoggingLevels level = 1;
-  string message = 2;
-  // google.protobuf.Any meta = 3;
-  map<string, string> meta = 3;
-  string service = 4;
+  string service = 1;
+  LoggingLevels level = 2;
+  string message = 3;
+  map<string, string> meta = 4;
 }
 
 // Each level is given a specific integer priority.
@@ -23,12 +21,13 @@ message LoggerOperation {
 // and the lower the corresponding integer priority.
 // For example, as specified exactly in RFC5424 the syslog levels are prioritized from 0 to 7 (highest to lowest).
 enum LoggingLevels {
-  EMERG = 0;      // Emergency: system is unusable
-  ALERT = 1;      // Alert: action must be taken immediately
-  CRIT = 2;       // Critical: critical conditions
-  ERROR = 3;      // Error: error conditions
-  WARNING = 4;    // Warning: warning conditions
-  NOTICE = 5;     // Notice: normal but significant condition
-  INFO = 6;       // Informational: informational messages
-  DEBUG = 7;      // Debug: debug-level messages
+  // UNSPECIFIED = 0; // Unspecified: default value
+  EMERG = 0;       // Emergency: system is unusable
+  ALERT = 1;       // Alert: action must be taken immediately
+  CRIT = 2;        // Critical: critical conditions
+  ERROR = 3;       // Error: error conditions
+  WARNING = 4;     // Warning: warning conditions
+  NOTICE = 5;      // Notice: normal but significant condition
+  INFO = 6;        // Informational: informational messages
+  DEBUG = 7;       // Debug: debug-level messages
 }

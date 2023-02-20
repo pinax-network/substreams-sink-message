@@ -62,7 +62,6 @@ substreams-sink-winston = "0.1"
 **src/lib.rs**
 
 ```rust
-use std::collections::HashMap;
 use substreams::errors::Error;
 use substreams_sink_winston::{Logger, LoggerOperations};
 
@@ -83,8 +82,8 @@ fn prom_out(
     // Error: error conditions
     log_ops.push(logger.error("error message"));
 
-    // Create a HashMap of metadata
-    let meta = HashMap::from([("label1".to_string(), "value1".to_string())]);
+    // Include Metadata
+    let meta = Meta::from(vec!(["key", "value"]));
     log_ops.push(logger.info("message").with(meta));
 
     Ok(log_ops)

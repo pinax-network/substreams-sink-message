@@ -1,32 +1,8 @@
 use crate::{LoggerOperation, LoggingLevels};
-use std::collections::HashMap;
 
 #[derive(Eq, Debug, PartialEq, Default)]
 pub struct Logger {
     pub service: String,
-}
-
-impl LoggerOperation {
-    /// Set label to Counter
-    /// Labels represents a collection of label name -> value mappings.
-    ///
-    /// ### Example
-    /// ```
-    /// use std::collections::HashMap;
-    /// use substreams_sink_winston::Logger;
-    /// let mut logger = Logger::new("user-service");
-    /// let meta = HashMap::from([("label1".to_string(), "value1".to_string())]);
-    /// logger.info("message").with(meta);
-    /// ```
-    #[inline]
-    pub fn with(self, meta: HashMap<String, String>) -> Self {
-        LoggerOperation {
-            level: self.level,
-            message: self.message,
-            meta,
-            service: self.service,
-        }
-    }
 }
 
 impl Logger {
@@ -208,17 +184,14 @@ impl Logger {
 mod tests {
     use super::*;
     use crate::LoggerOperations;
-    use std::collections::HashMap;
 
     #[test]
     fn test_counter() {
         let mut log_ops: LoggerOperations = Default::default();
         let mut logger = Logger::new("user-service");
-        let meta = HashMap::from([("label1".to_string(), "value1".to_string())]);
 
         log_ops.push(logger.info("info message"));
-        log_ops.push(logger.info("message with meta").with(meta));
         log_ops.push(logger.warning("warning"));
-        assert_eq!(log_ops.operations.len(), 3);
+        assert_eq!(log_ops.operations.len(), 2);
     }
 }
